@@ -1,5 +1,5 @@
 // 1.How do you add an item to the end of an array?
-const fruits = ['apple', 'banana'];
+//const fruits = ['apple', 'banana'];
 // Add 'orange' at the end
 
 const fruits = ['apple', 'banana'];
