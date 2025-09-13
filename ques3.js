@@ -139,113 +139,113 @@ const schoolData = {
 };
 
 
-// 1. Print names of all teachers. (Use forEach, map, or loop)
-//for loop
-// for (let i = 0; i<schoolData.classes.length; i++){
-//     console.log(schoolData.classes[i].teacher.name);
-// }
+1. Print names of all teachers. (Use forEach, map, or loop)
+for loop
+for (let i = 0; i<schoolData.classes.length; i++){
+    console.log(schoolData.classes[i].teacher.name);
+}
 
-//forEach
-// schoolData.classes.forEach((cls) => {
-//     console.log(cls.teacher.name);
-// });
+forEach
+schoolData.classes.forEach((cls) => {
+    console.log(cls.teacher.name);
+});
 
-//map
-// const teacherNames = schoolData.classes.map(cls => cls.teacher.name);
-// console.log(teacherNames);
-
-
-
-//2. Print all student names across all classes.
-// for(let i=0;i<schoolData.classes.length;i++){ // iterate classes
-//     for(let j=0;j<schoolData.classes[i].students.length;j++){   // iterate students in each class
-//         console.log(schoolData.classes[i].students[j].name); // print student name
-//     }
-// }
+map
+const teacherNames = schoolData.classes.map(cls => cls.teacher.name);
+console.log(teacherNames);
 
 
-// 3. List all parents' occupations for every student.
-// for(let i =0;i<schoolData.classes.length;i++){ // iterate classes
-//     for (let j=0; j<schoolData.classes[i].students.length; j++){ // iterate students in each class
-//         const student = schoolData.classes[i].students[j]; // current student
-//         console.log(`Student: ${student.name}`); // print student name
-//         console.log(`  Father's Occupation: ${student.parents.father.occupation}`); // print father's occupation
-//         console.log(`  Mother's Occupation: ${student.parents.mother.occupation}`); // print mother's occupation
-//     }
-// }
 
-// 4. Group students by age. Output should look like:
-// {
-//   "15": ["Alice", "Bob"],
-//   "16": ["Charlie"]
-// }
+2. Print all student names across all classes.
+for(let i=0;i<schoolData.classes.length;i++){ // iterate classes
+    for(let j=0;j<schoolData.classes[i].students.length;j++){   // iterate students in each class
+        console.log(schoolData.classes[i].students[j].name); // print student name
+    }
+}
 
 
-// const studentsByAge = {}; // object to hold age groups
-// for (let i =0; i<schoolData.classes.length; i++){ // iterate classes
-//     for( let j=0; j<schoolData.classes[i].students.length; j++){ // iterate students in each class
-//         const student = schoolData.classes[i].students[j]; // current student}}
-//         const age = student.age; // student's age
-//         if (!studentsByAge[age]){ // if age group doesn't exist, create it
-//             studentsByAge[age] = [];
-//         }
-//         studentsByAge[age].push(student.name); // add student to age group
-//     }
-// }
+3. List all parents' occupations for every student.
+for(let i =0;i<schoolData.classes.length;i++){ // iterate classes
+    for (let j=0; j<schoolData.classes[i].students.length; j++){ // iterate students in each class
+        const student = schoolData.classes[i].students[j]; // current student
+        console.log(`Student: ${student.name}`); // print student name
+        console.log(`  Father's Occupation: ${student.parents.father.occupation}`); // print father's occupation
+        console.log(`  Mother's Occupation: ${student.parents.mother.occupation}`); // print mother's occupation
+    }
+}
 
-// console.log(studentsByAge)
+4. Group students by age. Output should look like:
+{
+  "15": ["Alice", "Bob"],
+  "16": ["Charlie"]
+}
 
 
-//5.  Find all teachers who teach more than one class (if data was larger).
-// const teacherCount = {}; // object to hold teacher class counts
-// const repeatedTeachers =[]; // array to hold teachers teaching multiple classes
-// for (let i=0; i<schoolData.classes.length;i++){ // iterate classes
-//     const teacherName = schoolData.classes[i].teacher.name; // current teacher's name
-//     if(!teacherCount[teacherName]){ // if teacher already exists, increment count
-//         teacherCount[teacherName]=0;
-//     }
-//     teacherCount[teacherName]++; // initialize count
-// }
-//     for( let teacher in teacherCount){ // iterate teacher count object
-//         if(teacherCount[teacher]>1){ // if teacher teaches more than one class
-//             repeatedTeachers[repeatedTeachers.length] = teacher; // add teacher to repeatedTeachers array
-//         }
-//     }
-// console.log(repeatedTeachers); // print teachers teaching multiple classes
+const studentsByAge = {}; // object to hold age groups
+for (let i =0; i<schoolData.classes.length; i++){ // iterate classes
+    for( let j=0; j<schoolData.classes[i].students.length; j++){ // iterate students in each class
+        const student = schoolData.classes[i].students[j]; // current student}}
+        const age = student.age; // student's age
+        if (!studentsByAge[age]){ // if age group doesn't exist, create it
+            studentsByAge[age] = [];
+        }
+        studentsByAge[age].push(student.name); // add student to age group
+    }
+}
 
-//7. List all siblings across all students in all classes.
+console.log(studentsByAge)
 
-// const siblings = [];
-// for(let i=0;i<schoolData.classes.length;i++){ // iterate classes
-//     for(let j=0;j<schoolData.classes[i].students.length;j++){   // iterate students in each class
-//         const student = schoolData.classes[i].students[j]; // current student
-//         for(let k=0;k<student.siblings.length;k++){ // iterate siblings of each student
-//             siblings[siblings.length]=student.siblings[k].name; // add sibling name to siblings array
-//         }
-//     }
-// }
 
-// console.log(siblings);
+5.  Find all teachers who teach more than one class (if data was larger).
+const teacherCount = {}; // object to hold teacher class counts
+const repeatedTeachers =[]; // array to hold teachers teaching multiple classes
+for (let i=0; i<schoolData.classes.length;i++){ // iterate classes
+    const teacherName = schoolData.classes[i].teacher.name; // current teacher's name
+    if(!teacherCount[teacherName]){ // if teacher already exists, increment count
+        teacherCount[teacherName]=0;
+    }
+    teacherCount[teacherName]++; // initialize count
+}
+    for( let teacher in teacherCount){ // iterate teacher count object
+        if(teacherCount[teacher]>1){ // if teacher teaches more than one class
+            repeatedTeachers[repeatedTeachers.length] = teacher; // add teacher to repeatedTeachers array
+        }
+    }
+console.log(repeatedTeachers); // print teachers teaching multiple classes
 
-//8 Flatten all student names with their class and teacher in one array like:
-// [
-//   { student: "Alice", class: "10A", teacher: "Mr. Smith" },
-//   { student: "Bob", class: "10A", teacher: "Mr. Smith" },
-//   { student: "Charlie", class: "10B", teacher: "Mrs. Clark" }
-// ]
+7. List all siblings across all students in all classes.
 
-// const flattened = [];
+const siblings = [];
+for(let i=0;i<schoolData.classes.length;i++){ // iterate classes
+    for(let j=0;j<schoolData.classes[i].students.length;j++){   // iterate students in each class
+        const student = schoolData.classes[i].students[j]; // current student
+        for(let k=0;k<student.siblings.length;k++){ // iterate siblings of each student
+            siblings[siblings.length]=student.siblings[k].name; // add sibling name to siblings array
+        }
+    }
+}
 
-// for(let i=0 ;i<schoolData.classes.length;i++){ // iterate classes
-//     const cls = schoolData.classes[i]; // current class
-//     for(let j=0;j<cls.students.length;j++){
-//         const student = cls.students[j]; // current student
-//         flattened[flattened.length]= {
-//             student: student.name,
-//             class: cls.className,
-//             teacher: cls.teacher.name
-//         }
-//     }
-// }
+console.log(siblings);
 
-// console.log(flattened);
+8 Flatten all student names with their class and teacher in one array like:
+[
+  { student: "Alice", class: "10A", teacher: "Mr. Smith" },
+  { student: "Bob", class: "10A", teacher: "Mr. Smith" },
+  { student: "Charlie", class: "10B", teacher: "Mrs. Clark" }
+]
+
+const flattened = [];
+
+for(let i=0 ;i<schoolData.classes.length;i++){ // iterate classes
+    const cls = schoolData.classes[i]; // current class
+    for(let j=0;j<cls.students.length;j++){
+        const student = cls.students[j]; // current student
+        flattened[flattened.length]= {
+            student: student.name,
+            class: cls.className,
+            teacher: cls.teacher.name
+        }
+    }
+}
+
+console.log(flattened);
